@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-lazy_loader
-Version  : 0.2
-Release  : 2
-URL      : https://files.pythonhosted.org/packages/0e/c9/acfefeec32fe7090430f515c2bd376da650414a3df0b466030dd56512def/lazy_loader-0.2.tar.gz
-Source0  : https://files.pythonhosted.org/packages/0e/c9/acfefeec32fe7090430f515c2bd376da650414a3df0b466030dd56512def/lazy_loader-0.2.tar.gz
+Version  : 0.3
+Release  : 3
+URL      : https://files.pythonhosted.org/packages/0e/3a/1630a735bfdf9eb857a3b9a53317a1e1658ea97a1b4b39dcb0f71dae81f8/lazy_loader-0.3.tar.gz
+Source0  : https://files.pythonhosted.org/packages/0e/3a/1630a735bfdf9eb857a3b9a53317a1e1658ea97a1b4b39dcb0f71dae81f8/lazy_loader-0.3.tar.gz
 Summary  : lazy_loader
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -53,10 +53,10 @@ python3 components for the pypi-lazy_loader package.
 
 
 %prep
-%setup -q -n lazy_loader-0.2
-cd %{_builddir}/lazy_loader-0.2
+%setup -q -n lazy_loader-0.3
+cd %{_builddir}/lazy_loader-0.3
 pushd ..
-cp -a lazy_loader-0.2 buildavx2
+cp -a lazy_loader-0.3 buildavx2
 popd
 
 %build
@@ -64,15 +64,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679585800
+export SOURCE_DATE_EPOCH=1688410760
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
