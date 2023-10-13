@@ -5,7 +5,7 @@
 #
 Name     : pypi-lazy_loader
 Version  : 0.3
-Release  : 3
+Release  : 4
 URL      : https://files.pythonhosted.org/packages/0e/3a/1630a735bfdf9eb857a3b9a53317a1e1658ea97a1b4b39dcb0f71dae81f8/lazy_loader-0.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/0e/3a/1630a735bfdf9eb857a3b9a53317a1e1658ea97a1b4b39dcb0f71dae81f8/lazy_loader-0.3.tar.gz
 Summary  : lazy_loader
